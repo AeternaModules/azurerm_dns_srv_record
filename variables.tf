@@ -21,12 +21,12 @@ EOT
     ttl                 = number
     zone_name           = string
     tags                = optional(map(string))
-    record = object({
+    record = list(object({
       port     = number
       priority = number
       target   = string
       weight   = number
-    })
+    }))
   }))
   # --- Unconfirmed validation candidates, derived from azurerm_dns_srv_record's provider source ---
   # Not auto-enabled: either a bespoke provider validator we can't safely translate,
