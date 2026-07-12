@@ -1,3 +1,7 @@
+output "dns_srv_records_id" {
+  description = "Map of id values across all dns_srv_records, keyed the same as var.dns_srv_records"
+  value       = { for k, v in azurerm_dns_srv_record.dns_srv_records : k => v.id }
+}
 output "dns_srv_records_fqdn" {
   description = "Map of fqdn values across all dns_srv_records, keyed the same as var.dns_srv_records"
   value       = { for k, v in azurerm_dns_srv_record.dns_srv_records : k => v.fqdn }
